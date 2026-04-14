@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A2E">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="❤ Swipe Bot"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#FF6B6B"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自动滑动助手"
+            android:textSize="14sp"
+            android:textColor="#888888"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Status Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_bg"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="状态检查"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="悬浮窗权限"
+                    android:textColor="#CCCCCC"
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/tv_overlay_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="❌ 未授权"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="无障碍服务"
+                    android:textColor="#CCCCCC"
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/tv_accessibility_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="❌ 未启用"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Permission Buttons -->
+        <Button
+            android:id="@+id/btn_grant_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="授权悬浮窗权限"
+            android:backgroundTint="#FF6B6B"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_grant_accessibility"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="开启无障碍服务"
+            android:backgroundTint="#FF6B6B"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Config Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_bg"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="参数配置"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Like Probability -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="右划概率（Like）"
+                android:textColor="#CCCCCC"
+                android:textSize="13sp"
+                android:layout_marginBottom="4dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+                <SeekBar
+                    android:id="@+id/seekbar_like_prob"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="100"
+                    android:progress="80"
+                    android:progressTint="#FF6B6B"
+                    android:thumbTint="#FF6B6B" />
+                <TextView
+                    android:id="@+id/tv_like_prob"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="80%"
+                    android:textColor="#FF6B6B"
+                    android:textSize="14sp"
+                    android:gravity="end" />
+            </LinearLayout>
+
+            <!-- Swipe Interval -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="右划间隔：0.5s ~ 2s（随机）"
+                android:textColor="#CCCCCC"
+                android:textSize="13sp"
+                android:layout_marginBottom="4dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="最短(0.5s起)" android:textColor="#888888" android:textSize="11sp"/>
+                    <SeekBar
+                        android:id="@+id/seekbar_swipe_min"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="30"
+                        android:progress="5"
+                        android:progressTint="#4ECDC4"
+                        android:thumbTint="#4ECDC4" />
+                    <TextView android:id="@+id/tv_swipe_min" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0.5s" android:textColor="#4ECDC4" android:textSize="12sp"/>
+                </LinearLayout>
+                <View android:layout_width="12dp" android:layout_height="1dp"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="最长(20s封顶)" android:textColor="#888888" android:textSize="11sp"/>
+                    <SeekBar
+                        android:id="@+id/seekbar_swipe_max"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="200"
+                        android:progress="20"
+                        android:progressTint="#4ECDC4"
+                        android:thumbTint="#4ECDC4" />
+                    <TextView android:id="@+id/tv_swipe_max" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="2.0s" android:textColor="#4ECDC4" android:textSize="12sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Session Size -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="批次大小（每批次最少90次）"
+                android:textColor="#CCCCCC"
+                android:textSize="13sp"
+                android:layout_marginBottom="4dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
+                <SeekBar
+                    android:id="@+id/seekbar_session_max"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="110"
+                    android:progress="60"
+                    android:progressTint="#F7DC6F"
+                    android:thumbTint="#F7DC6F" />
+                <TextView
+                    android:id="@+id/tv_session_max"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="90~150"
+                    android:textColor="#F7DC6F"
+                    android:textSize="13sp"
+                    android:gravity="end" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Start Button -->
+        <Button
+            android:id="@+id/btn_start_floating"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="🚀 启动悬浮控制窗"
+            android:textSize="16sp"
+            android:backgroundTint="#FF6B6B"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚠ 启动后切换到 Tinder，悬浮按钮会始终显示在屏幕上"
+            android:textColor="#888888"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_marginBottom="20dp" />
+
+    </LinearLayout>
+</ScrollView>

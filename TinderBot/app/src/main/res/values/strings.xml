@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Swipe Bot</string>
+    <string name="accessibility_service_label">Swipe Bot 自动滑动服务</string>
+    <string name="accessibility_service_description">允许 Swipe Bot 模拟触控手势，自动执行滑动操作</string>
+</resources>
