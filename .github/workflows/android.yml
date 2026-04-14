@@ -21,8 +21,18 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+      - name: Setup Gradle
+        run: |
+          wget -q https://services.gradle.org/distributions/gradle-8.1.1-bin.zip -O gradle.zip
+          unzip -q gradle.zip
+          export PATH=$PATH:$(pwd)/gradle-8.1.1/bin
+          echo "$(pwd)/gradle-8.1.1/bin" >> $GITHUB_PATH
+
+      - name: Generate Gradle Wrapper
+        run: |
+          export PATH=$PATH:$(pwd)/gradle-8.1.1/bin
+          gradle wrapper --gradle-version 8.1.1
+          chmod +x gradlew
 
       - name: Build debug APK
         run: ./gradlew assembleDebug
